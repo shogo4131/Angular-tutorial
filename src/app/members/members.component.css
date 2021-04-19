@@ -1,0 +1,11 @@
+.members {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.members .badge {
+  display: inline-block;
+  color: white;
+  background-color: silver;
+}
