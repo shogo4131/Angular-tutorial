@@ -1,15 +1,11 @@
 <h2>社員一覧</h2>
 <div>
   <ul class="members">
-    <li
-      *ngFor="let member of members"
-      (click)="clickMemberFunc(member)"
-      [class.selected]="member === selectedMember"
-    >
-      <span class="badge">{{ member.id }}</span
-      >{{ member.name }}
+    <li *ngFor="let member of members">
+      <a routerLink="/detail/{{ member.id }}">
+        <span class="badge">{{ member.id }}</span
+        >{{ member.name }}
+      </a>
     </li>
   </ul>
 </div>
-
-<app-member-list [member]="selectedMember"></app-member-list>
