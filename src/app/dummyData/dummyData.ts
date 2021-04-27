@@ -1,4 +1,4 @@
-import { Member } from './member';
+import { Member } from '../member';
 
 export const MEMBERS: Member[] = [
   { id: 11, name: '田中太郎' },

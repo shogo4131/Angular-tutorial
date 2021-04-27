@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Member } from '../member';
-import { MEMBERS } from '../dummyData';
+import { MemberService } from '../member.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-members',
@@ -8,19 +9,33 @@ import { MEMBERS } from '../dummyData';
   styleUrls: ['./members.component.css'],
 })
 export class MembersComponent implements OnInit {
-  members = MEMBERS;
-  member: Member = {
-    id: 1,
-    name: '山田太郎',
-  };
-
+  // プロパティ(state)を定義
+  members: Member[];
   selectedMember: Member;
 
-  constructor() {}
+  // serviceを定義
+  constructor(
+    private memberService: MemberService,
+    private messageService: MessageService
+  ) {}
 
-  ngOnInit(): void {}
+  // ライフサイクルメソッド
+  ngOnInit(): void {
+    this.getMembers();
+  }
 
-  clickMemberFunc(member: Member) {
+  // serviceから取得したデータをmembersプロパティに入れる
+  getMembers(): void {
+    this.memberService
+      .getMember()
+      .subscribe((members) => (this.members = members));
+  }
+
+  // 関数定義
+  public clickMemberFunc(member: Member) {
     this.selectedMember = member;
+    this.messageService.addMessage(
+      `MemberComponent: 社員データ${member.id}が選択されました`
+    );
   }
 }

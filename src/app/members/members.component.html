@@ -12,17 +12,4 @@
   </ul>
 </div>
 
-<div *ngIf="selectedMember">
-  <h2>{{ selectedMember.name }}</h2>
-  <div>
-    <label for="member">
-      名前
-      <input
-        type="text"
-        id="member"
-        [(ngModel)]="selectedMember.name"
-        placeholder="名前"
-      />
-    </label>
-  </div>
-</div>
+<app-member-list [member]="selectedMember"></app-member-list>
