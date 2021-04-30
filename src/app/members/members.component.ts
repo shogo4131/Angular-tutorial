@@ -25,4 +25,15 @@ export class MembersComponent implements OnInit {
       .getMembers()
       .subscribe((members) => (this.members = members));
   }
+
+  // メンバーを追加する
+  addMemberName(name: string) {
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+    this.memberService.addMember({ name } as Member).subscribe((member) => {
+      this.members.push(member);
+    });
+  }
 }

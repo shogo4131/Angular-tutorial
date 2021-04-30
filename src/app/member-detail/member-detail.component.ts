@@ -29,7 +29,11 @@ export class MemberDetailComponent implements OnInit {
       .subscribe((member) => (this.member = member));
   }
 
-  goBack() {
+  public goBack() {
     this.location.back();
+  }
+
+  public save() {
+    this.memberService.updateMember(this.member).subscribe(() => this.goBack());
   }
 }

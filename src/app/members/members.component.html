@@ -1,5 +1,13 @@
 <h2>社員一覧</h2>
 <div>
+  <label for="member-name"
+    >社員名:<input type="text" id="member-name" #memberName
+  /></label>
+  <button (click)="addMemberName(memberName.value); memberName.value = ''">
+    追加
+  </button>
+</div>
+<div>
   <ul class="members">
     <li *ngFor="let member of members">
       <a routerLink="/detail/{{ member.id }}">
