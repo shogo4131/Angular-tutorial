@@ -1,0 +1,9 @@
+<div class="serach">
+  <h4>社員検索</h4>
+  <input type="text" #searchBox (input)="search(searchBox.value)" />
+  <ul>
+    <li *ngFor="let member of members$ | async">
+      <a routerLink="/detail/{{ member.id }}">{{ member.name }}</a>
+    </li>
+  </ul>
+</div>

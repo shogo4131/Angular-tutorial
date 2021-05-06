@@ -19,7 +19,7 @@ export class MembersComponent implements OnInit {
     this.getMembers();
   }
 
-  // serviceから取得したデータをmembersプロパティに入れる
+  // 初期表示
   getMembers(): void {
     this.memberService
       .getMembers()
@@ -27,7 +27,7 @@ export class MembersComponent implements OnInit {
   }
 
   // メンバーを追加する
-  addMemberName(name: string) {
+  public addMemberName(name: string) {
     name = name.trim();
     if (!name) {
       return;
@@ -35,5 +35,11 @@ export class MembersComponent implements OnInit {
     this.memberService.addMember({ name } as Member).subscribe((member) => {
       this.members.push(member);
     });
+  }
+
+  // メンバーを削除する
+  public deleteMemberName(member: Member) {
+    this.members = this.members.filter((m) => m !== member);
+    this.memberService.deleteMember(member).subscribe();
   }
 }

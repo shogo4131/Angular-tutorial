@@ -13,6 +13,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
+import { MemberSearchComponent } from './member-search/member-search.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MemberDetailComponent } from './member-detail/member-detail.component';
     MessagesComponent,
     DashboardComponent,
     MemberDetailComponent,
+    MemberSearchComponent,
   ],
   imports: [
     BrowserModule,
